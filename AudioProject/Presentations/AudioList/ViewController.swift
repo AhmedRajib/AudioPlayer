@@ -9,11 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tableview: UITableView!
+    
+    // MARK: - Video DidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setUpView()
     }
-
+    
+    private func setUpView() {
+        
+    }
+    
 
 }
 
