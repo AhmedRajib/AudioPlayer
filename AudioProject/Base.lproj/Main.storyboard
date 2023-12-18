@@ -34,7 +34,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9pA-u8-ZG6">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KBt-xb-ab8">
                                         <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
@@ -160,6 +160,46 @@
             </objects>
             <point key="canvasLocation" x="1160" y="-58"/>
         </scene>
+        <!--Audio Screen-->
+        <scene sceneID="6ND-bC-8Ov">
+            <objects>
+                <viewController storyboardIdentifier="AudioScreen" id="DQT-oO-LSs" customClass="AudioScreen" customModule="AudioProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cd6-I6-DG5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PzZ-qw-9HN">
+                                <rect key="frame" x="131" y="27" width="131" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wkN-x3-jxH">
+                                <rect key="frame" x="0.0" y="75" width="393" height="743"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DQT-oO-LSs" id="NMi-dk-3nE"/>
+                                    <outlet property="delegate" destination="DQT-oO-LSs" id="qU5-TK-CNA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LVU-Bb-OtH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wkN-x3-jxH" firstAttribute="leading" secondItem="LVU-Bb-OtH" secondAttribute="leading" id="8vN-xu-Ejs"/>
+                            <constraint firstItem="LVU-Bb-OtH" firstAttribute="bottom" secondItem="wkN-x3-jxH" secondAttribute="bottom" id="IvN-io-ObI"/>
+                            <constraint firstItem="LVU-Bb-OtH" firstAttribute="trailing" secondItem="wkN-x3-jxH" secondAttribute="trailing" id="Pig-KF-OhJ"/>
+                            <constraint firstItem="PzZ-qw-9HN" firstAttribute="centerX" secondItem="Cd6-I6-DG5" secondAttribute="centerX" id="aAM-lg-BxX"/>
+                            <constraint firstItem="wkN-x3-jxH" firstAttribute="top" secondItem="LVU-Bb-OtH" secondAttribute="top" constant="16" id="fee-8f-oGV"/>
+                            <constraint firstItem="PzZ-qw-9HN" firstAttribute="centerY" secondItem="Cd6-I6-DG5" secondAttribute="centerY" multiplier="0.1" id="k1T-vy-STz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Alf-h0-JiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2086" y="-58"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
@@ -167,6 +207,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

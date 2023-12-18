@@ -14,19 +14,33 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AudioTableViewCell.identifier, for: indexPath) as! AudioTableViewCell
-        cell.titleLabel.text = vm.keyArray[indexPath.row]
-        cell.imageIcon.image = UIImage(named: "audio")
+        let cell = tableView.dequeueReusableCell(withIdentifier: AudioCell.identifier, for: indexPath) as! AudioCell
+        cell.audioTitle.text = vm.keyArray[indexPath.row]
+//        cell.musciTypeIcon.image = UIImage(named: "audio")
+//        cell.downloadIcon.image = UIImage(named: "audio")
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.masksToBounds = true
+        cell.layer.shadowOpacity = 0.6
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let audioUrl = vm.audioList[vm.keyArray[indexPath.row]] {
-            let str = audioUrl as? String ?? ""
-            playAudioFilesWithURL(url: str)
-        }
-        showingAudioPlayer()
-        addTimeObserver()
+//        if let audioUrl = vm.audioList[vm.keyArray[indexPath.row]] {
+//            let str = audioUrl as? String ?? ""
+//            playAudioFilesWithURL(url: str)
+//        }
+//        showingAudioPlayer()
+//        addTimeObserver()
+        showAudioScreen()
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 80
+//    }
+//    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 100
     }
     
     func reloadTableView() {
@@ -40,6 +54,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         pausePlayBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         player?.volume = 1
         player?.play()
+    }
+    
+    private func showAudioScreen() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AudioScreen") as! AudioScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
 

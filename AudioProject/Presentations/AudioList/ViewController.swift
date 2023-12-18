@@ -35,7 +35,9 @@ class ViewController: UIViewController {
     }
     
     private func setUpView() {
-        tableview.register(AudioTableViewCell.nib, forCellReuseIdentifier: AudioTableViewCell.identifier)
+        tableview.register(AudioCell.nib, forCellReuseIdentifier: AudioCell.identifier)
+        tableview.separatorColor = .clear
+        
         playerImage.image = UIImage(named: "audio")
         playerImage.layer.cornerRadius = playerImage.frame.height / 2
         progressView.progress = 0.0
