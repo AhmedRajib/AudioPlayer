@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWB-wt-lbz">
-                        <rect key="frame" x="10" y="0.0" width="379" height="82"/>
+                        <rect key="frame" x="10" y="8" width="379" height="66"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLr-bT-4KI">
-                                <rect key="frame" x="8" y="19" width="44" height="44"/>
+                                <rect key="frame" x="8" y="11" width="44" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_music" translatesAutoresizingMaskIntoConstraints="NO" id="FxN-3Q-3Xb">
                                         <rect key="frame" x="10" y="10" width="24" height="24"/>
@@ -40,7 +40,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pld-kb-eOy">
-                                <rect key="frame" x="60" y="19" width="42.666666666666657" height="44"/>
+                                <rect key="frame" x="60" y="11" width="42.666666666666657" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awk-1b-WGx">
                                         <rect key="frame" x="0.0" y="0.0" width="42.666666666666664" height="21"/>
@@ -57,7 +57,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cnh-r9-b0G">
-                                <rect key="frame" x="327" y="19" width="44" height="44"/>
+                                <rect key="frame" x="327" y="11" width="44" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_download" translatesAutoresizingMaskIntoConstraints="NO" id="Bfq-zT-V6J">
                                         <rect key="frame" x="10" y="10" width="24" height="24"/>
@@ -76,7 +76,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWq-2v-VeA">
-                                <rect key="frame" x="275" y="19" width="44" height="44"/>
+                                <rect key="frame" x="275" y="11" width="44" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pause" translatesAutoresizingMaskIntoConstraints="NO" id="iAS-cD-q7d">
                                         <rect key="frame" x="10" y="10" width="24" height="24"/>
@@ -112,8 +112,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="tWB-wt-lbz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5lg-1f-RKO"/>
-                    <constraint firstAttribute="bottom" secondItem="tWB-wt-lbz" secondAttribute="bottom" id="W8p-9O-P2N"/>
-                    <constraint firstItem="tWB-wt-lbz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ga4-FD-G3T"/>
+                    <constraint firstAttribute="bottom" secondItem="tWB-wt-lbz" secondAttribute="bottom" constant="8" id="W8p-9O-P2N"/>
+                    <constraint firstItem="tWB-wt-lbz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ga4-FD-G3T"/>
                     <constraint firstAttribute="trailing" secondItem="tWB-wt-lbz" secondAttribute="trailing" constant="10" id="oT1-Yp-wzG"/>
                 </constraints>
             </tableViewCellContentView>

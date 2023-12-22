@@ -24,8 +24,9 @@ class AudioCell: UITableViewCell {
         musicTypeBackground.layer.cornerRadius = 22
         playPauseBackGround.layer.cornerRadius = 22
         downloadBackGround.layer.cornerRadius = 22
-        
+        mainBackgroundView.layer.cornerRadius = 8
         contentView.layer.cornerRadius = 8
+        mainBackgroundView.dropShadow()
         
     }
     
@@ -33,8 +34,8 @@ class AudioCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        mainBackgroundView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
-        
+//        mainBackgroundView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
        
     }
     

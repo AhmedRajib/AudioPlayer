@@ -6,8 +6,9 @@
 //
 
 import UIKit
-//import TipKit
 import AVFoundation
+import Photos
+import MediaPlayer
 
 class ViewController: UIViewController {
 
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
     var player : AVPlayer?
     var isPlaying: Bool = false
     var timeObserver: Any?
+    var audioFiles: [URL] = []
     // Assuming you have an AVAudioPlayer instance
 
     // Create a timer to update the progress view
@@ -35,6 +37,8 @@ class ViewController: UIViewController {
     }
     
     private func setUpView() {
+        
+//        getAllAudioFiles()
         tableview.register(AudioCell.nib, forCellReuseIdentifier: AudioCell.identifier)
         tableview.separatorColor = .clear
         
@@ -61,6 +65,20 @@ class ViewController: UIViewController {
         progressView.trackTintColor = UIColor.gray
         
         bindViewModel()
+        
+//        let audioFiles = getAllAudioFiles()
+//        print("Audio files: \(audioFiles)")
+
+        MPMediaLibrary.requestAuthorization { (status) in
+            if status == .authorized {
+                // Permission granted, proceed with retrieving MP3 files
+                self.getMP3Files()
+                self.listDownloadedAudioFiles()
+            } else {
+                // Permission denied
+                print("Media library permission denied")
+            }
+        }
     }
     
     private func bindViewModel() {
@@ -122,5 +140,62 @@ class ViewController: UIViewController {
             NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
             NotificationCenter.default.removeObserver(self, name: .AVPlayerItemTimeJumped, object: player?.currentItem)
         }
+    
+//    func getAllAudioFiles() -> [URL] {
+//        let fileManager = FileManager.default
+//        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        
+//        do {
+//            let audioFiles = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+//            
+//            // Filter the list to include only audio files based on their file extensions
+//            let audioFileExtensions = ["mp3", "m4a", "wav", "aac"]
+//            let filteredAudioFiles = audioFiles.filter { fileURL in
+//                return audioFileExtensions.contains(fileURL.pathExtension.lowercased())
+//            }
+//            
+//            return filteredAudioFiles
+//        } catch {
+//            print("Error reading contents of directory: \(error)")
+//            return []
+//        }
+//    }
+    
+    func getMP3Files() {
+        let query = MPMediaQuery.songs()
+        let predicate = MPMediaPropertyPredicate(value: "mp3", forProperty: MPMediaItemPropertyAssetURL, comparisonType: .contains)
+        query.addFilterPredicate(predicate)
+
+        if let items = query.items {
+            for item in items {
+                if let title = item.title {
+                    print("Title: \(title)")
+                    // You can also access other properties like artist, album, etc.
+                }
+                if let assetURL = item.assetURL {
+                    print("Asset URL: \(assetURL)")
+                    // Use the assetURL to play or manipulate the MP3 file
+                }
+            }
+        }
+    }
+    
+    func listDownloadedAudioFiles() {
+        do {
+            let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+
+            for fileURL in fileURLs {
+                // Check if the file is an audio file based on its extension
+                if fileURL.pathExtension.lowercased() == "mp3" {
+                    print("Audio File: \(fileURL.lastPathComponent)")
+                    // Add the fileURL to your list or perform any other actions
+                }
+            }
+        } catch {
+            print("Error listing downloaded audio files: \(error.localizedDescription)")
+        }
+    }
+
 }
 
